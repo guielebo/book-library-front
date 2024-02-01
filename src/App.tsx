@@ -39,7 +39,7 @@ function App() {
     items: [],
     totalCount: 0,
     pageSize: 0,
-    pageNumber: 0
+    pageNumber: 1
   })
 
   const [page, setPage] = useState(1)
@@ -55,14 +55,14 @@ function App() {
   const handleChangeFilterOrPage = useCallback(({ nextPage, nextLimit, search, searchType }: { nextPage?: number; nextLimit?: number, search?: string; searchType?: string }) => {
     if (search !== undefined && search !== termSearch) {
       startTransition(() => {
-        setPage(0)
+        setPage(1)
         setTermSearch(search)
         setSearchType(searchType || '')
       })
     }
     else if (nextLimit !== undefined && nextLimit !== limit) {
       startTransition(() => {
-        setPage(0)
+        setPage(1)
         setLimit(nextLimit)
       })
     }
